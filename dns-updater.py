@@ -17,7 +17,7 @@ def main(domain, email, subdomain=None, ttl=300, rec_type='A', public=False,
     actual_ip = (r.text).strip()
   else:
     actual_ip = socket.gethostbyname(socket.gethostname())
-
+  pyrax.set_setting("identity_type", "rackspace")
   pyrax.set_credential_file(os.path.expanduser(creds_file))
   dns = pyrax.cloud_dns
 
